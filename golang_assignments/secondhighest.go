@@ -1,39 +1,20 @@
 package main
 
-import (
-	"fmt"
-)
-
-func second(arr []int) {
-	first := arr[0]
-	second := -1
-	for i := 0; i < len(arr); i++ {
-		if arr[i] > first {
-			second = first
-			first = arr[i]
-		} else if arr[i] > second && arr[i] < first {
-			second = arr[i]
-
-		}
-	}
-	if second != -1 {
-		fmt.Printf("second max: %d\n", second)
-
-	} else {
-		fmt.Println("No second max")
-	}
-
-}
+import "fmt"
 
 func main() {
-	fmt.Print("Enter array size: ")
-	var n int
-	fmt.Scanln(&n)
-	array := make([]int, n)
-	for i := 0; i < n; i++ {
-		fmt.Printf("Enter %d element: ", i+1)
-		fmt.Scanln(&array[i])
-	}
-	second(array)
+	arr := []int{9, 2, 7, 1, 3}
+	var first int = 0
+	var second int = 0
 
+	first = arr[0]
+	for i := 1; i <= 4; i++ {
+		if first < arr[i] {
+			second = first
+			first = arr[i]
+		} else if second < arr[i] {
+			second = arr[i]
+		}
+	}
+	fmt.Println("Second largest element is: ", second)
 }
